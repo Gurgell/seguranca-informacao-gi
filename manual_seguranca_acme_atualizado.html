@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Segurança da Informação - Acme Ltda</title>
+    <style>
+        :root {
+            --primary-color: #cc0000;
+            --primary-dark: #990000;
+            --accent-color: #ff1a1a;
+            --text-color: #333333;
+            --background-light: #f8f9fa;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--background-light);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 2rem 2rem 140px;
+            text-align: left;
+            position: relative;
+            box-shadow: var(--shadow);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+            padding: 0.8rem;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            box-shadow: none;
+        }
+
+        .logo-container img {
+            height: 80px;
+            width: auto;
+        }
+
+        section {
+            margin: 2.5rem auto;
+            padding: 2rem;
+            background: white;
+            max-width: 900px;
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        header h1, header h2 {
+            color: white;
+            margin: 0.3rem 0;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+        }
+
+        header h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        .section-title {
+            border-bottom: 3px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        ul {
+            margin-left: 1.5rem;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        strong {
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: var(--primary-color);
+            color: white;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                margin: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            header {
+                padding: 130px 1.5rem 1.5rem 1.5rem; /* Ajustado o padding top */
+                text-align: center;
+            }
+
+            .logo-container {
+                top: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                height: 100px;
+                background: transparent;
+                box-shadow: none;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            header h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        .nav-container {
+            background: white;
+            padding: 0.25rem 1.5rem;
+            margin: 0;
+            width: 100%;
+            box-shadow: var(--shadow);
+            border-radius: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-container ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-container li {
+            flex: 0 1 auto;
+            text-align: center;
+            white-space: nowrap;
+            padding: 0;
+        }
+
+        .nav-container a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 0.15rem 0;
+            border-radius: 2px;
+            transition: background-color 0.2s;
+            font-size: 0.75rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container ul {
+                justify-content: flex-start;
+                gap: 0.5rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .nav-container {
+                padding: 0.5rem;
+            }
+
+            .nav-container li {
+                text-align: left;
+                white-space: normal;
+                line-height: 1.2;
+            }
+
+            .nav-container a {
+                display: block;
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        .evaluation-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .evaluation-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin: 1rem 0;
+            font-weight: 600;
+        }
+
+        .evaluation-button:hover {
+            background: var(--primary-dark);
+        }
+
+        .form-container {
+            margin: 2rem 0;
+            width: 100%;
+            height: 600px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .form-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 2rem; width: 100%;">
+            <div class="logo-container">
+                <img src="resources/ACME-Logo-1981.png" alt="Acme Ltda" height="80">
+            </div>
+            <div style="margin-left: 20px">
+                <h1>Manual de Segurança da Informação</h1>
+                <h2>Acme Ltda</h2>
+            </div>
+        </div>
+    </header>
+
+    <nav class="nav-container">
+        <ul>
+            <li><a href="#introducao">1. Introdução</a></li>
+            <li><a href="#objetivos">2. Objetivos</a></li>
+            <li><a href="#diretrizes">3. Diretrizes Gerais</a></li>
+            <li><a href="#processos">4. Processos Operacionais</a></li>
+            <li><a href="#conscientizacao">5. Conscientização e Treinamento</a></li>
+            <li><a href="#politica">6. Continuidade e Riscos</a></li>
+            <li><a href="#auditoria">7. Plano de Auditoria</a></li>
+            <li><a href="#avaliacao">8. Avaliação de Conhecimento</a></li>
+        </ul>
+    </nav>
+
+    <section id="introducao">
+        <h2 class="section-title">1. Introdução</h2>
+        <p>A segurança da informação é um dos pilares fundamentais para a operação eficiente e segura de qualquer organização. No caso da Acme Ltda., 
+            que expandiu consideravelmente nos últimos anos, proteger os ativos informacionais tornou-se ainda mais crucial.</p>
+        <p>Com base nas normas ISO/IEC 27001 e 27002, este manual estabelece práticas e processos para mitigar riscos, alinhar operações aos padrões 
+            internacionais e promover uma cultura organizacional voltada para a segurança.</p>
+    </section>
+
+    <section id="objetivos">
+        <h2 class="section-title">2. Objetivos</h2>
+        <p>Os objetivos principais da segurança da informação na Acme Ltda. são:</p>
+        <ul>
+            <li><strong>Confidencialidade:</strong> Evitar o acesso não autorizado a informações sensíveis, protegendo dados de clientes, fornecedores e processos internos.</li>
+            <li><strong>Integridade:</strong> Garantir que as informações sejam precisas e completas, sem alterações não autorizadas, assegurando a confiabilidade dos dados.</li>
+            <li><strong>Disponibilidade:</strong> Assegurar que os dados e sistemas estejam acessíveis sempre que necessário, minimizando interrupções no negócio.</li>
+        </ul>
+        <p>Além disso, buscamos:</p>
+        <ul>
+            <li>Implementar controles claros e eficientes para proteger os dados.</li>
+            <li>Reduzir ao mínimo os riscos de interrupções operacionais e ataques cibernéticos.</li>
+            <li>Promover a conscientização dos colaboradores sobre os riscos da tecnologia.</li>
+        </ul>
+    </section>
+
+    <section id="diretrizes">
+        <h2 class="section-title">3. Diretrizes Gerais</h2>
+        <h3>3.1 Políticas e Normas</h3>
+        <p>A Política de Segurança da Informação (PSI) deve ser clara, abrangente e alinhada aos objetivos estratégicos da organização.</p>
+        <p>A PSI será revisada anualmente ou em casos de mudanças tecnológicas e normativas significativas.
+            Garantir que todos os colaboradores estejam cientes das diretrizes estabelecidas na PSI por meio de treinamentos regulares​​.</p>
+        <h3>3.2 Gestão de Acessos</h3>
+        <ul>
+            <li>Implementação de controles de acesso baseados no princípio do menor privilégio, assegurando que os usuários tenham acesso apenas às informações necessárias para suas funções.</li>
+            <li>Adoção de autenticação multifator em sistemas críticos e restrição de acessos administrativos a usuários altamente confiáveis.</li>
+            <li>Monitoramento contínuo de acessos, com relatórios mensais para identificar padrões ou atividades suspeitas​​.</li>
+        </ul>
+        <h3>3.3 Uso Adequado de Recursos</h3>
+        <ul>
+            <li>Proibição de instalação de softwares não licenciados e uso de dispositivos pessoais em redes corporativas.</li>
+            <li>Monitoramento do tráfego de internet e bloqueio de sites não relacionados às atividades corporativas.</li>
+            <li>Estabelecimento de contratos de manutenção com fornecedores certificados.</li>
+            <li>Criação de um guia prático sobre o uso adequado dos recursos tecnológicos para colaboradores​​.</li>
+        </ul>
+        <h3>3.4 Gerenciamento de Hardware e Software</h3>
+        <ul>
+            <li>Substituição de equipamentos obsoletos dentro de um cronograma de atualização contínuo.</li>
+            <li>Estabelecimento de contratos de manutenção com fornecedores certificados.</li>
+            <li>Criação de um inventário de ativos digitais, atualizado regularmente para garantir a rastreabilidade e manutenção eficiente​​.</li>
+        </ul>
+    </section>
+
+    <section id="processos">
+        <h2 class="section-title">4. Processos Operacionais</h2>
+        <h3>4.1 Backup e Recuperação</h3>
+        <ul>
+            <li>A realização de backups diários deve ser automatizada, com armazenamento seguro em locais físicos e na nuvem.</li>
+            <li>A cada três meses, realizar testes de recuperação de dados para validar a eficiência dos backups.</li>
+            <li>Garantir redundância em sistemas críticos para recuperação em tempo real​​.</li>
+        </ul>
+        <h3>4.2 Gerenciamento de Vulnerabilidades</h3>
+        <ul>
+            <li>Realização de avaliações de vulnerabilidade trimestrais em todos os sistemas.</li>
+            <li>Implementação imediata de patches de segurança para corrigir vulnerabilidades conhecidas.</li>
+            <li>Treinamento periódico para equipes de TI em resposta a incidentes​​.</li>
+        </ul>
+        <h3>4.3 Monitoramento e Resposta</h3>
+        <p>Uso de sistemas de monitoramento contínuo para identificar e neutralizar tentativas de acesso não autorizado.</p>
+        <p>Desenvolvimento de um plano de resposta a incidentes, detalhando procedimentos para contenção e mitigação de ataques cibernéticos.</p>
+        <p>Treinamento periódico para equipes de TI em resposta a incidentes​​.</p>
+        <h3>4.4 Continuidade do Negócio</h3>
+        <p>Criação de um plano de continuidade que inclua servidores redundantes e failover automático.</p>
+        <p>Treinamento dos gestores para operar sistemas em modo de contingência.</p>
+        <p>Simulações anuais para testar a resiliência dos planos de continuidade​​.</p>
+    </section>
+
+    <section id="conscientizacao">
+        <h2 class="section-title">5. Conscientização e Treinamento</h2>
+        <h3>5.1 Programas de Treinamento</h3>
+        <ul>
+            <li>Treinamentos obrigatórios para novos colaboradores e atualizações semestrais para todos os funcionários.</li>
+            <li>Simulações práticas, como identificação de phishing, para reforçar o aprendizado teórico.</li>
+            <li>Acompanhamento do progresso dos treinamentos com certificações internas​​.</li>
+        </ul>
+        <h3>5.2 Comunicação</h3>
+        <ul>
+            <li>Criação de um canal de comunicação direta para reportar incidentes e dúvidas relacionadas à segurança.</li>
+            <li>Implementação de uma newsletter mensal com atualizações sobre segurança da informação e boas práticas.</li>
+            <li>Campanhas anuais de conscientização, com palestras e materiais audiovisuais​.</li>
+        </ul>
+    </section>
+
+    <section id="politica">
+        <h2 class="section-title">6. Política de Continuidade e Gestão de Riscos</h2>
+        <p>A análise de riscos deve ser realizada trimestralmente, utilizando metodologias como CRAMM ou ISO 31000.</p>
+        <p>Desenvolvimento de procedimentos documentados para cada tipo de incidente, com atribuição de responsabilidades específicas.</p>
+        <p>Reavaliação contínua dos riscos para alinhar estratégias de mitigação às ameaças emergentes​​.</p>
+    </section>
+
+    <section id="auditoria">
+        <h2 class="section-title">7. Plano de Auditoria</h2>
+        <p>Auditorias semestrais para avaliação de conformidade com a PSI.</p>
+        <p>Relatórios detalhados para a alta administração com recomendações de melhorias.</p>
+        <p>Integração dos resultados das auditorias com o plano de melhorias contínuas​​.</p>
+    </section>
+
+    <section id="avaliacao">
+        <h2 class="section-title">8. Avaliação do Conhecimento</h2>
+        <p>Para validar seu entendimento sobre o conteúdo apresentado, complete a avaliação abaixo:</p>
+        
+        <div class="evaluation-container">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfpz-nHXdE1GjJVkxpkVFxA2BmNF2S3ntJqZvwZSWVmkkRvCw/viewform" 
+               target="_blank" 
+               class="evaluation-button">
+                Acessar Avaliação de Conhecimento
+            </a>
+        </div>
+
+        <div class="form-container">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpz-nHXdE1GjJVkxpkVFxA2BmNF2S3ntJqZvwZSWVmkkRvCw/viewform?embedded=true"
+                    title="Formulário de Avaliação">
+                Carregando formulário...
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>Manual desenvolvido para a Acme Ltda. | Segurança da Informação é responsabilidade de todos.</p>
+    </footer>
+</body>
+</html>
